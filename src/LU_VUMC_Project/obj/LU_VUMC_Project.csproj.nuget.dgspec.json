@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Development\\lu_vumc\\src\\LU_VUMC_Project\\LU_VUMC_Project.csproj": {}
+    "C:\\Development\\lu_vumc_2\\src\\LU_VUMC_Project\\LU_VUMC_Project.csproj": {}
   },
   "projects": {
-    "C:\\Development\\lu_vumc\\src\\LU_VUMC_Project\\LU_VUMC_Project.csproj": {
+    "C:\\Development\\lu_vumc_2\\src\\LU_VUMC_Project\\LU_VUMC_Project.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Development\\lu_vumc\\src\\LU_VUMC_Project\\LU_VUMC_Project.csproj",
+        "projectUniqueName": "C:\\Development\\lu_vumc_2\\src\\LU_VUMC_Project\\LU_VUMC_Project.csproj",
         "projectName": "LU_VUMC_Project",
-        "projectPath": "C:\\Development\\lu_vumc\\src\\LU_VUMC_Project\\LU_VUMC_Project.csproj",
+        "projectPath": "C:\\Development\\lu_vumc_2\\src\\LU_VUMC_Project\\LU_VUMC_Project.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Development\\lu_vumc\\src\\LU_VUMC_Project\\obj\\",
+        "outputPath": "C:\\Development\\lu_vumc_2\\src\\LU_VUMC_Project\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
