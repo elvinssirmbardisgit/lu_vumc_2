@@ -137,7 +137,22 @@ namespace Exercises.Level1
         /// </summary>
         public string AlarmClock(int day, bool vacation)
         {
-            throw new NotImplementedException();
+            if (vacation)
+            {
+                if (day == 0 || day == 6)
+                {
+                    return "off";
+                }
+                return "10:00";
+            }
+            else
+            {
+                if (day == 0 || day == 6)
+                {
+                    return "10:00";
+                }
+                return "7:00";
+            }
         }
 
         /// <summary>
@@ -155,7 +170,7 @@ namespace Exercises.Level1
             {
                 return true;
             }
-            if(Math.Abs(a + b) == 6 || Math.Abs(a - b) == 6)
+            if(a + b == 6 || Math.Abs(a - b) == 6)
             {
                 return true;
             }
