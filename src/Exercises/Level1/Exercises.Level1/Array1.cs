@@ -17,21 +17,7 @@ namespace Exercises.Level1
         /// firstLast6([13, 6, 1, 2, 3]) → false
         /// </summary>
         public bool FirstLast6(int[] nums)
-        {
-            bool isFirst = nums[0] == 6;
-
-            int lastIndex = nums.Length - 1;
-            bool isLast = nums[lastIndex] == 6;
-
-            //if (isFirst || isLast)
-            //{
-            //    return true;
-            //}
-            //return false;
-
-            return isFirst || isLast;
-
-        }
+            => nums[0] == 6 || nums[nums.Length - 1] == 6;
 
         /// <summary>
         /// Given an array of ints, return true if the array is length 1 or more, and the first element
