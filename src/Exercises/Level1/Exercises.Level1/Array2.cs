@@ -17,7 +17,15 @@ namespace Exercises.Level1
         /// </summary>
         public int CountEvens(int[] nums)
         {
-            throw new NotImplementedException();
+            int x = 0;
+            foreach (int num in nums)
+            {
+                if ((num % 2) == 0)
+                {
+                    x++;
+                }
+            }
+            return x;
         }
 
         /// <summary>
@@ -31,7 +39,20 @@ namespace Exercises.Level1
         /// </summary>
         public int BigDiff(int[] nums)
         {
-            throw new NotImplementedException();
+            int maxCnt = nums[0];
+            int minCnt = nums[0];
+            foreach (int num in nums)
+            {
+                if (maxCnt < num)
+                {
+                    maxCnt = num;
+                }
+                if (minCnt > num)
+                {
+                    minCnt = num;
+                }
+            }
+            return maxCnt - minCnt;
         }
 
         /// <summary>
@@ -61,7 +82,27 @@ namespace Exercises.Level1
         /// </summary>
         public int Sum13(int[] nums)
         {
-            throw new NotImplementedException();
+            int sum = 0;
+            if (nums.Length > 0)
+            {
+                for (var i = 0; i <= nums.Length - 1; i++)
+                {
+                    int x;
+                    if ((i - 1) < 0)
+                    {
+                        x = 1;
+                    }
+                    else
+                    {
+                        x = i;
+                    }
+                    if (!nums[i].Equals(13) && !nums[x - 1].Equals(13))
+                    {
+                        sum += nums[i];
+                    }
+                }
+            }
+            return sum;
         }
 
         /// <summary>
@@ -87,7 +128,20 @@ namespace Exercises.Level1
         /// </summary>
         public bool Has22(int[] nums)
         {
-            throw new NotImplementedException();
+            if (nums.Length > 1)
+            {
+                for (var i = 0; i <= nums.Length - 1; i++)
+                {
+                    if ((i - 1) >= 0)
+                    {
+                        if (nums[i].Equals(2) && nums[i - 1].Equals(2))
+                        {
+                            return true;
+                        }
+                    }
+                }
+            }
+            return false;
         }
 
         /// <summary>
@@ -123,7 +177,20 @@ namespace Exercises.Level1
         /// </summary>
         public bool More14(int[] nums)
         {
-            throw new NotImplementedException();
+            int oneCnt = 0;
+            int fourCnt = 0;
+            foreach (int num in nums)
+            {
+                if (num.Equals(1))
+                {
+                    oneCnt++;
+                }
+                if (num.Equals(4))
+                {
+                    fourCnt++;
+                }
+            }
+            return oneCnt > fourCnt;
         }
 
         /// <summary>
