@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace Exercises.Level1
 {
@@ -17,21 +18,7 @@ namespace Exercises.Level1
         /// firstLast6([13, 6, 1, 2, 3]) → false
         /// </summary>
         public bool FirstLast6(int[] nums)
-        {
-            bool isFirst = nums[0] == 6;
-
-            int lastIndex = nums.Length - 1;
-            bool isLast = nums[lastIndex] == 6;
-
-            //if (isFirst || isLast)
-            //{
-            //    return true;
-            //}
-            //return false;
-
-            return isFirst || isLast;
-
-        }
+            => nums[0] == 6 || nums[^1] == 6;
 
         /// <summary>
         /// Given an array of ints, return true if the array is length 1 or more, and the first element
@@ -42,20 +29,7 @@ namespace Exercises.Level1
         /// sameFirstLast([1, 2, 1]) → true
         /// </summary>
         public bool SameFirstLast(int[] nums)
-        {
-            if (nums.Length > 0)
-            {
-                int isFirst = nums[0];
-                int lastIndex = nums.Length - 1;
-                int isLast = nums[lastIndex];
-
-                if (isFirst == isLast)
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
+            => nums.Length > 0 && nums[0] == nums[^1];
 
         /// <summary>
         /// Return an int array length 3 containing the first 3 digits of pi, {3, 1, 4}.
@@ -203,22 +177,9 @@ namespace Exercises.Level1
         /// sum2([1, 1, 1, 1]) → 2
         /// </summary>
         public int Sum2(int[] nums)
-        {
-            if (!nums.Length.Equals(0))
-            {
-                if(nums.Length !> 1)
-                {
-                    int sum = 0;
-                    for (var i = 0; i <= 1; i++)
-                    {
-                        sum = nums[0] + nums[i];
-                    }
-                    return sum;
-                }
-                return nums[0];
-            }
-            return 0;
-        }
+            => nums.Length > 1
+                    ? nums.Take(2).Sum()
+                    : nums.FirstOrDefault();
 
         /// <summary>
         /// Given 2 int arrays, a and b, each length 3, return a new array length 2 containing their
