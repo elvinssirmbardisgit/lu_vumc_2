@@ -126,7 +126,30 @@ namespace Exercises.Level1
         /// </summary>
         public int Sum67(int[] nums)
         {
-            throw new NotImplementedException();
+            int sum = 0;
+            if (nums.Length > 0)
+            {
+                bool stateCountNums = true;
+                bool stateSkipNums = false;
+                for (var i = 0; i <= nums.Length - 1; i++)
+                {
+                    if (nums[i].Equals(6))
+                    {
+                        stateCountNums = false;
+                    }
+                    if (nums[i].Equals(7) && stateCountNums.Equals(false))
+                    {
+                        stateCountNums = true;
+                        stateSkipNums = true;
+                    }
+                    if (stateCountNums.Equals(true) && stateSkipNums.Equals(false))
+                    {
+                        sum += nums[i];
+                    }
+                    stateSkipNums = false;
+                }
+            }
+            return sum;
         }
 
         /// <summary>
@@ -163,7 +186,18 @@ namespace Exercises.Level1
         /// </summary>
         public bool Lucky13(int[] nums)
         {
-            throw new NotImplementedException();
+            foreach (int num in nums)
+            {
+                if (num.Equals(1))
+                {
+                    return false;
+                }
+                if (num.Equals(3))
+                {
+                    return false;
+                }
+            }
+            return true;
         }
 
         /// <summary>
@@ -175,7 +209,19 @@ namespace Exercises.Level1
         /// </summary>
         public bool Sum28(int[] nums)
         {
-            throw new NotImplementedException();
+            int sum = 0;
+            foreach (int num in nums)
+            {
+                if (num.Equals(2))
+                {
+                    sum += num;
+                }
+            }
+            if (sum.Equals(8))
+            {
+                return true;
+            }
+            return false;
         }
 
         /// <summary>
@@ -215,7 +261,15 @@ namespace Exercises.Level1
         /// </summary>
         public int[] FizzArray(int n)
         {
-            throw new NotImplementedException();
+            int[] arrayNew = new int[n];
+            if (!n.Equals(0))
+            {
+                for (var i = 0; i <= n - 1; i++)
+                {
+                    arrayNew[i] = i;
+                }
+            }
+            return arrayNew;
         }
 
         /// <summary>
@@ -227,7 +281,22 @@ namespace Exercises.Level1
         /// </summary>
         public bool Only14(int[] nums)
         {
-            throw new NotImplementedException();
+            int count = 0;
+            if (nums.Length > 0)
+            {
+                foreach (int num in nums)
+                {
+                    if (num.Equals(1) || num.Equals(4))
+                    {
+                        count++;
+                    }
+                }
+                if (!count.Equals(nums.Length))
+                {
+                    return false;
+                }
+            }
+            return true;
         }
 
         /// <summary>
@@ -241,7 +310,15 @@ namespace Exercises.Level1
         /// </summary>
         public string[] FizzArray2(int nums)
         {
-            throw new NotImplementedException();
+            string[] arrayNew = new string[nums];
+            if (!nums.Equals(0))
+            {
+                for (var i = 0; i <= nums - 1; i++)
+                {
+                    arrayNew[i] = i.ToString();
+                }
+            }
+            return arrayNew;
         }
 
         /// <summary>
@@ -253,7 +330,27 @@ namespace Exercises.Level1
         /// </summary>
         public bool No14(int[] nums)
         {
-            throw new NotImplementedException();
+            int countOne = 0;
+            int countFour = 0;
+            if (nums.Length > 0)
+            {
+                foreach (int num in nums)
+                {
+                    if (num.Equals(1))
+                    {
+                        countOne++;
+                    }
+                    if (num.Equals(4))
+                    {
+                        countFour++;
+                    }
+                }
+                if (countOne > 0 && countFour > 0)
+                {
+                    return false;
+                }
+            }
+            return true;
         }
 
         /// <summary>
@@ -267,7 +364,92 @@ namespace Exercises.Level1
         /// </summary>
         public bool IsEverywhere(int[] nums, int val)
         {
-            throw new NotImplementedException();
+            bool checkState = true;
+            int halfArrayLengh = nums.Length / 2;
+            bool arrayIsEven = nums.Length % 2 == 0;
+            int evenCnt = halfArrayLengh;
+            int oddCnt = halfArrayLengh;
+            if (!arrayIsEven)
+            {
+                evenCnt++;
+            }
+
+            int[] arrayFirstNumsFromPair = new int[evenCnt];
+            int[] arraySecondNumsFromPair = new int[oddCnt];
+
+            int validationFirst = 0;
+            int validationSecond = 0;
+            if (nums.Length > 1)
+            {
+                for (var i = 0; i <= nums.Length - 1; i++)
+                {
+                    if (arrayIsEven)
+                    {
+                        bool isEven = i % 2 == 0;
+                        if (isEven)
+                        {
+                            arrayFirstNumsFromPair[evenCnt - 1] = nums[i];
+                            evenCnt--;
+                        }
+                        else
+                        {
+                            arraySecondNumsFromPair[oddCnt - 1] = nums[i];
+                            oddCnt--;
+                        }
+                    }
+                    else
+                    {
+                        bool isEven = i % 2 == 0;
+                        if (isEven)
+                        {
+                            arrayFirstNumsFromPair[evenCnt - 1] = nums[i];
+                            evenCnt--;
+                        }
+                        else
+                        {
+                            arraySecondNumsFromPair[oddCnt - 1] = nums[i];
+                            oddCnt--;
+                        }
+                    }
+                }
+
+                foreach (int num in arrayFirstNumsFromPair)
+                {
+                    if (num.Equals(val))
+                    {
+                        validationFirst++;
+                    }
+                }
+                foreach (int num in arraySecondNumsFromPair)
+                {
+                    if (num.Equals(val))
+                    {
+                        validationSecond++;
+                    }
+                }
+
+                if (validationFirst.Equals(arrayFirstNumsFromPair.Length) || validationSecond.Equals(arraySecondNumsFromPair.Length))
+                {
+                    checkState = true;
+                }
+                else
+                {
+                    checkState = false;
+                }
+            }
+
+            return checkState;
+
+            //bool result = true;
+            //for (int i = 0; i <= nums.Length - 2; i++)
+            //{
+            //    if (nums[i] != val && nums[i + 1] != val)
+            //    {
+            //        result = false;
+            //    }
+            //}
+            //return result;
+
         }
 
         /// <summary>
