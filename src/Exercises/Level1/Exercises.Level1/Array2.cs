@@ -462,7 +462,25 @@ namespace Exercises.Level1
         /// </summary>
         public bool Either24(int[] nums)
         {
-            throw new NotImplementedException();
+            int resultTwo = 0;
+            int resultFour = 0;
+            bool result = false;
+            for (int i = 0; i <= nums.Length - 2; i++)
+            {
+                if (nums[i].Equals(2) && nums[i + 1].Equals(2))
+                {
+                    resultTwo++;
+                }
+                if (nums[i].Equals(4) && nums[i + 1].Equals(4))
+                {
+                    resultFour++;
+                }
+            }
+            if (resultTwo + resultFour == 1)
+            {
+                result = true;
+            }
+            return result;
         }
 
         /// <summary>
@@ -489,7 +507,28 @@ namespace Exercises.Level1
         /// </summary>
         public bool Has77(int[] nums)
         {
-            throw new NotImplementedException();
+            int result77 = 0;
+            int result7i7 = 0;
+            bool result = false;
+            for (int i = 0; i <= nums.Length - 2; i++)
+            {
+                if (nums[i].Equals(7) && nums[i + 1].Equals(7))
+                {
+                    result77++;
+                }
+            }
+            for (int i = 0; i <= nums.Length - 3; i++)
+            {
+                if (nums[i].Equals(7) && nums[i + 2].Equals(7))
+                {
+                    result7i7++;
+                }
+            }
+            if (result77+result7i7 >= 1)
+            {
+                result = true;
+            }
+            return result;
         }
 
         /// <summary>
@@ -502,7 +541,24 @@ namespace Exercises.Level1
         /// </summary>
         public bool Has12(int[] nums)
         {
-            throw new NotImplementedException();
+            int found1 = -1;
+            int found2 = -1;
+            for (int i = 0; i <= nums.Length - 1; i++)
+            {
+                if (nums[i].Equals(1))
+                {
+                    found1 = i;
+                }
+                if (nums[i].Equals(2))
+                {
+                    found2 = i;
+                }
+            }
+            if (found1 >= 0 && found1 < found2)
+            {
+                return true;
+            }
+            return false;
         }
 
         /// <summary>
@@ -515,7 +571,21 @@ namespace Exercises.Level1
         /// </summary>
         public bool ModThree(int[] nums)
         {
-            throw new NotImplementedException();
+            for (int i = 0; i <= nums.Length - 3; i++)
+            {
+                if (nums[i] % 2 == 0 && nums[i + 1] % 2 == 0 && nums[i + 2] % 2 == 0)
+                {
+                    //even
+                    return true;
+
+                }
+                if (nums[i] % 2 > 0 && nums[i + 1] % 2 > 0 && nums[i + 2] % 2 > 0)
+                {
+                    //odd
+                    return true;
+                }
+            }
+            return false;
         }
 
         /// <summary>
@@ -528,7 +598,19 @@ namespace Exercises.Level1
         /// </summary>
         public bool HaveThree(int[] nums)
         {
-            throw new NotImplementedException();
+            int count = 0;
+            for (int i = 0; i <= nums.Length - 2; i++)
+            {
+                if (nums[i].Equals(3) && !nums[i + 1].Equals(3))
+                {
+                    count++;
+                }
+            }
+            if (nums[nums.Length - 1].Equals(3))
+            {
+                count++;
+            }
+            return count.Equals(3);
         }
 
         /// <summary>
@@ -540,7 +622,51 @@ namespace Exercises.Level1
         /// </summary>
         public bool TwoTwo(int[] nums)
         {
-            throw new NotImplementedException();
+            bool result = false;
+            int count22 = 0;
+            int count2 = 0;
+            int countNo = 0;
+            if (nums.Length > 1)
+            {
+                for (int i = 0; i <= nums.Length - 2; i++)
+                {
+                    if (nums[i].Equals(2))
+                    {
+                        if (nums[i].Equals(2) && nums[i + 1].Equals(2))
+                        {
+                            count22++;
+                        }
+
+                        if (nums[i].Equals(2) && !nums[i + 1].Equals(2))
+                        {
+                            count2++;
+                        }
+                    }
+                    else
+                    {
+                        countNo++;
+                    }
+                }
+                //checks last count in array
+                if (nums[nums.Length - 1].Equals(2))
+                {
+                    count2++;
+                }
+                else
+                {
+                    countNo++;
+                }
+                //other then 2
+                if (countNo == nums.Length)
+                {
+                    result = true;
+                }
+                if (count22 > 0 && count2 <= count22)
+                {
+                    result = true;
+                }
+            }
+            return result;
         }
 
         /// <summary>
@@ -567,7 +693,14 @@ namespace Exercises.Level1
         /// </summary>
         public bool TripleUp(int[] nums)
         {
-            throw new NotImplementedException();
+            for (int i = 0; i <= nums.Length - 3; i++)
+            {
+                if(nums[i + 1] == nums[i] + 1 && nums[i + 2] == nums[i] + 2)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         /// <summary>
