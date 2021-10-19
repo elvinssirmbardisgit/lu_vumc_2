@@ -843,7 +843,35 @@ namespace Exercises.Level1
         /// </summary>
         public int[] EvenOdd(int[] nums)
         {
-            throw new NotImplementedException();
+            int[] arrayNew = new int[nums.Length];
+            int countEvenNums = 0;
+            //count even nums
+            foreach (int num in nums)
+            {
+                if (num % 2 == 0)
+                {
+                    countEvenNums++;
+                }
+            }
+
+            int midEven = countEvenNums - 1;
+            int midOdd = countEvenNums;
+
+            for (int i = 0; i <= nums.Length - 1; i++)
+            {
+                if (nums[i] % 2 == 0)
+                {
+                    arrayNew[midEven] = nums[i];
+                    midEven--;
+                }
+                else
+                {
+                    arrayNew[midOdd] = nums[i];
+                    midOdd++;
+                }
+            }
+
+            return arrayNew;
         }
 
         /// <summary>
